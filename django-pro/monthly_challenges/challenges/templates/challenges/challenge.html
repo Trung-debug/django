@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+{% extends "base.html" %} 
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,4 +15,16 @@
         <p>There is no challenge</p>
     {% endif %}
 </body>
-</html>
+</html> {% endcomment %}
+{% block page_title %}
+    {{ month_name|title }} Challenge
+{% endblock %}
+
+{% block content%}
+    <h1>This {{month_name|title}}'s Challenge</h1>
+    {% if text is not None %}
+        <h2>{{ text }}</h2>
+    {% else %}
+        <p>There is no challenge</p>
+    {% endif %}
+{% endblock %}
