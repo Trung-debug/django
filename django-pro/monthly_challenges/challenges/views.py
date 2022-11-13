@@ -1,7 +1,7 @@
 from types import NoneType
 from urllib import response
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.template.loader import render_to_string
 # Create your views here.
@@ -85,7 +85,9 @@ def monthly_challenges(request, month):
         })
         return HttpResponse(response_data)
     except:
-        return HttpResponseNotFound("404 Page Not Found")
+        # response_data = render_to_string("404.html")
+        # return HttpResponseNotFound(response_data)
+        raise Http404()
 
 
 """
