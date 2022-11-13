@@ -15,7 +15,10 @@
     </ul>
 </body>
 </html> {% endcomment %}
-
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "challenges/challenges.css" %}">
+{% endblock %}
 
 {% block page_title%}
 {{ month_name|title }} Challenge
