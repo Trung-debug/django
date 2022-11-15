@@ -1,4 +1,5 @@
 {% extends "base.html" %} 
+{% load static %}
 {% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,10 @@
     {% endif %}
 </body>
 </html> {% endcomment %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "challenges/challenge.css" %}">
+    <link rel="stylesheet" href="{% static "challenges/includes/header.css" %}">
+{% endblock %}
 {% block page_title %}
     {{ month_name|title }} Challenge
 {% endblock %}
@@ -26,6 +31,6 @@
     {% if text is not None %}
         <h2>{{ text }}</h2>
     {% else %}
-        <p>There is no challenge</p>
+        <p class="fallback">There is no challenge</p>
     {% endif %}
 {% endblock %}
